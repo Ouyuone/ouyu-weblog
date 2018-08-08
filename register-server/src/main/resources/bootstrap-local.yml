@@ -1,0 +1,4 @@
+eureka:
+  server:
+    enable-self-preservation: false #（设为false，关闭自我保护主要） 由于Eureka拥有自我保护机制，当其注册表里服务因为网络或其他原因出现故障而关停时，Eureka不会剔除服务注册，而是等待其修复
+    eviction-interval-timer-in-ms: 4000 #清理间隔（单位毫秒，默认是60*1000）

@@ -1,0 +1,43 @@
+server:
+  port: 443
+  tomcat:
+    uri-encoding: UTF-8
+spring:
+  profiles:
+    active: local
+  application:
+    name: api-gateway
+  http:
+    encoding:
+      force: true
+    multipart:
+      maxFileSize: 5MB
+zuul:
+  routes:
+    user:
+      path: /user/**
+      service-id: user-service
+# 熔断器超时设置
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 30000
+# 服务设置(通过service-id可以单独设置)
+ribbon:
+  # 连接超时
+  ConnectTimeout: 10000
+  # 处理超时
+  ReadTimeout: 30000
+  # 所有的操作重试
+  #OkToRetryOnAllOperations: true
+  # 切换实例重试次数
+  #MaxAutoRetriesNextServer: 1
+  # 本机重试次数
+  #MaxAutoRetries: 0
+logging:
+  file: ../logs/api-gateway.log
+  level:
+    root: info

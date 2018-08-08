@@ -1,0 +1,23 @@
+spring:
+  profiles:
+    active: local
+  application:
+    name: user-service
+  http:
+    encoding:
+      force: true
+server:
+  port: 1112
+  tomcat:
+    uri-encoding: UTF-8
+quartz:
+  scheduler:
+    instanceName: userScheduler
+    groupName: user
+    tasks: >
+      [
+        {"beanName":"baseEventTask","cronExpression":"0 0/30 * * * ? *"}
+      ]
+    task:
+      deleteEvent:
+        intervalDay: 30

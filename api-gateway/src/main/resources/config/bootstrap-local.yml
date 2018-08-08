@@ -1,0 +1,27 @@
+eureka:
+  client:
+    enabled: true
+    serviceUrl:
+      defaultZone: http://admin:local@127.0.0.1:2222/eureka/
+  instance:
+    prefer-ip-address: true
+CrossOrigin:
+   origins: http://localhost:8081,http://localhost:8080,http://localhost
+   exposedHeaders: X-Auth-Token,Content-Type
+   allowCredentials: 'true'
+   allowedHeaders: X-Auth-Token,Content-Type,X-Organization-Id
+   methods: GET,HEAD,POST,PUT,PATCH,DELETE,OPTIONS,TRACE
+   maxAge: '1800'
+spring:
+    devtools:
+        restart:
+            #热部署生效
+          enabled: true
+            #设置重启的目录
+            #additional-paths: src/main/java
+            #classpath目录下的WEB-INF文件夹内容修改不重启
+          exclude: WEB-INF/**
+logging:
+  config:
+    classpath: config/logback-${spring.profiles.active}.xml
+excludeUrls: /login

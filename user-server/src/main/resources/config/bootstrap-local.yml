@@ -1,0 +1,51 @@
+eureka:
+  client:
+    enabled: true
+    serviceUrl:
+      defaultZone: http://admin:local@127.0.0.1:2222/eureka/
+  instance:
+    prefer-ip-address: true
+spring:
+#  devtools:
+#      restart:
+#          #热部署生效
+#        enabled: true
+#          #设置重启的目录
+#          #additional-paths: src/main/java
+#          #classpath目录下的WEB-INF文件夹内容修改不重启
+#        exclude: WEB-INF/**
+  redis:
+      database: 0
+      host: 127.0.0.1
+      password: fecredis
+      pool.max-active: 600
+      pool.max-idle: 300
+      pool.max-wait: 2000
+      port: 6379
+      timeout: 0
+  datasource:
+      driverClassName: com.mysql.jdbc.Driver
+      url: jdbc:mysql://localhost/demo?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull
+      username: root
+      password: root
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+#  rabbitmq:
+#    host: 39.108.37.180
+#    port: 5672
+#    username: admin
+#    password: rbmq17@dev
+#    publisher-confirms: true
+#  datasource:
+#    driverClassName: com.mysql.jdbc.Driver
+#    url: jdbc:mysql://39.108.37.180:3306/message_local?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull
+#    username: message
+#    password: message
+#  jpa:
+#    show-sql: true
+#  properties:
+#    excelPath: D:\\excelDemo
+test:
+  name: 65456465
